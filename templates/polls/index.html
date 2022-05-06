@@ -33,7 +33,7 @@
         </div>
         </a><br/><br/>
     {% endfor %}
-    {#    {% if is_paginated %}#}
-    {#        {% include 'partial/pagination.html' %}#}
-    {#    {% endif %}#}
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
 {% endblock %}
