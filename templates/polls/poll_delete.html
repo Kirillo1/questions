@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <h2>
+            Delete: {{ poll.question }}?</h2>
+        {% include "partial/form.html" with button_text='Yes' %}
+    </form>
+    <a href="{% url "poll:pool_detail_view" poll.pk %}">No!</a>
+{% endblock %}

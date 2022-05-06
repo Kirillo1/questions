@@ -1,5 +1,7 @@
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy, reverse
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
+from poll.forms import PollForm
 from poll.models import Poll
 
 
@@ -30,3 +32,24 @@ class PollDetailView(DetailView):
     #     percent = E(F("answer_count") * f, output_field=DecimalField())
     #     res_choices = choices.annotate(answer_count=Count("answers__pk")).annotate(percent=percent)
     #     return res_choices
+
+
+class PollCreateView(CreateView):
+    model = Poll
+    form_class = PollForm
+    template_name = "polls/poll_create.html"
+
+
+class PollUpdateView(UpdateView):
+    form_class = PollForm
+    template_name = "polls/poll_update.html"
+    model = Poll
+
+    def get_success_url(self):
+        return reverse("poll:pool_detail_view", kwargs={"pk": self.object.pk})
+
+
+class PollDelete(DeleteView):
+    template_name = "polls/poll_delete.html"
+    model = Poll
+    success_url = reverse_lazy('poll:index')

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block lists %}Update{% endblock %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'poll:poll_update' poll.pk %}">Question</a>
+    </li>{% endblock %}
+{% block content %}
+    <h1>Update question</h1>
+
+    <form method="post">
+        {% include "partial/form.html" with button_text="Update" %}
+
+    </form>
+{% endblock %}

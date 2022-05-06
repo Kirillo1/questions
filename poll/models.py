@@ -35,6 +35,6 @@ class Choice(BaseModel):
         verbose_name = 'Choice'
         verbose_name_plural = 'Choices'
 
-    # def get_absolute_url(self):
-    #     return reverse("poll_view", kwargs={'pk': self.pk})
+    def get_absolute_url(self):
+        return reverse("poll:pool_detail_view", kwargs={'pk': self.pk})
 
