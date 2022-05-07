@@ -1,6 +1,6 @@
 from django import forms
 
-from poll.models import Poll
+from poll.models import Poll, Choice
 
 
 class PollForm(forms.ModelForm):
@@ -12,3 +12,9 @@ class PollForm(forms.ModelForm):
         widgets = {
             'poll': forms.CheckboxSelectMultiple
         }
+
+
+class ChoiceForm(forms.ModelForm):
+    class Meta:
+        model = Choice
+        fields = ("variant_text",)

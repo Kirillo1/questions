@@ -16,18 +16,18 @@
     <h1>{{ poll.question }}</h1><br/>
     <h3>Time of creation:</h3>
     <p>{{ poll.time_of_creations }}</p><br/>
-{#    <h1>Choice:</h1>#}
-{#    {% for ch in poll.choices.all %}#}
-{#        <h2>{{ ch.variant_text }}</h2>#}
-{##}
-{#        <li class="nav-item">#}
-{#            <a class=" active" aria-current="page" href="{% url "choice_add" poll.pk %}">Add</a>#}
-{#        </li>#}
+    <h1>Choice:</h1>
+    {% for ch in poll.choices.all %}
+        <h2>{{ ch.variant_text }}</h2>
+
+        <li class="nav-item">
+            <a class=" active" aria-current="page" href="{% url "poll:choice_add" poll.pk %}">Add</a>
+        </li>
 {#        <li class="nav-item">#}
 {#            <a class=" active" aria-current="page" href="{% url "choice_update" ch.pk %}">Update</a>#}
 {#        </li>#}
 {#        <li class="nav-item">#}
 {#            <a class=" active" aria-current="page" href="{% url "choice_delete" ch.pk %}">Delete</a>#}
 {#        </li>#}
-{#    {% endfor %}#}
+    {% endfor %}
 {% endblock %}
