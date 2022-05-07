@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <h2>
+            Delete: {{ choice.variant_text }}?</h2>
+        {% include "partial/form.html" with button_text='Yes' %}
+    </form>
+    <a href="{% url "poll:index" %}">No!</a>
+{% endblock %}

@@ -20,14 +20,15 @@
     {% for ch in poll.choices.all %}
         <h2>{{ ch.variant_text }}</h2>
 
+
         <li class="nav-item">
-            <a class=" active" aria-current="page" href="{% url "poll:choice_add" poll.pk %}">Add</a>
+            <a class=" active" aria-current="page" href="{% url "poll:choice_update" ch.pk %}">Update</a>
         </li>
-{#        <li class="nav-item">#}
-{#            <a class=" active" aria-current="page" href="{% url "choice_update" ch.pk %}">Update</a>#}
-{#        </li>#}
-{#        <li class="nav-item">#}
-{#            <a class=" active" aria-current="page" href="{% url "choice_delete" ch.pk %}">Delete</a>#}
-{#        </li>#}
+        <li class="nav-item">
+            <a class=" active" aria-current="page" href="{% url "poll:choice_delete" ch.pk %}">Delete</a>
+        </li><br/><br/>
     {% endfor %}
+    <li class="nav-item">
+        <a class=" active" aria-current="page" href="{% url "poll:choice_add" poll.pk %}">Add new choice</a>
+    </li>
 {% endblock %}
