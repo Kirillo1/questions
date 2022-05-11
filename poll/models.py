@@ -11,7 +11,7 @@ class BaseModel(models.Model):
         abstract = True
 
     def get_absolute_url(self):
-        return reverse("poll_view", kwargs={'pk': self.pk})
+        return reverse("poll:pool_detail_view", kwargs={'pk': self.pk})
 
 
 class Poll(BaseModel):
@@ -38,3 +38,13 @@ class Choice(BaseModel):
     def get_absolute_url(self):
         return reverse("poll:pool_detail_view", kwargs={'pk': self.pk})
 
+
+class Answer(BaseModel):
+    poll = models.ForeignKey("poll.Poll", on_delete=models.CASCADE, related_name='answers', verbose_name='poll')
+    time_of_answer = models.DateTimeField(auto_now_add=True, verbose_name='time of answer')
+    choice = models.ForeignKey("poll.Choice", on_delete=models.CASCADE, related_name='answers', verbose_name='choice')
+
+    class Meta:
+        db_table = 'answer'
+        verbose_name = 'Answer'
+        verbose_name_plural = 'Answers'

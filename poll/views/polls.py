@@ -1,6 +1,9 @@
-from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from tkinter.constants import E
 
+from django.db.models import Count, F, DecimalField
+
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from poll.forms import PollForm
 from poll.models import Poll
 
