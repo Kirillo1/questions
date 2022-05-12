@@ -1,8 +1,6 @@
-from tkinter.constants import E
+from django.db.models import Count, ExpressionWrapper as E, F, DecimalField
 
-from django.db.models import Count, F, DecimalField
-
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from poll.forms import PollForm
 from poll.models import Poll
@@ -23,18 +21,18 @@ class PollDetailView(DetailView):
     template_name = 'polls/poll_detail_view.html'
     model = Poll
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     count = self.object.answers.count()
-    #     context["count"] = count
-    #     context["choices"] = self.get_choices_with_answers_count(count, self.object.choices.all())
-    #     return context
-    #
-    # def get_choices_with_answers_count(self, count, choices):
-    #     f = 100 / count
-    #     percent = E(F("answer_count") * f, output_field=DecimalField())
-    #     res_choices = choices.annotate(answer_count=Count("answers__pk")).annotate(percent=percent)
-    #     return res_choices
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        count = self.object.answers.count()
+        context["count"] = count
+        context["choices"] = self.get_choices_with_answers_count(count, self.object.choices.all())
+        return context
+
+    def get_choices_with_answers_count(self, count, choices):
+        f = 100 / count
+        percent = E(F("answer_count") * f, output_field=DecimalField())
+        res_choices = choices.annotate(answer_count=Count("answers__pk")).annotate(percent=percent)
+        return res_choices
 
 
 class PollCreateView(CreateView):

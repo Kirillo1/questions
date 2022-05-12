@@ -9,6 +9,12 @@ class PollAdmin(admin.ModelAdmin):
     fields = ['question']
 
 
+class ChoiceAdmin(admin.ModelAdmin):
+    list_display = ['id', 'variant_text', 'poll']
+    search_fields = ['question']
+    fields = ['variant_text']
+
+
 admin.site.register(Poll, PollAdmin)
-admin.site.register(Choice)
+admin.site.register(Choice, ChoiceAdmin)
 admin.site.register(Answer)

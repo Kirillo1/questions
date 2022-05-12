@@ -30,6 +30,9 @@ class Choice(BaseModel):
     variant_text = models.CharField(max_length=100, verbose_name="variant text")
     poll = models.ForeignKey("poll.Poll", on_delete=models.CASCADE, related_name="choices", verbose_name="Choice")
 
+    def __str__(self):
+        return f"{self.variant_text}"
+
     class Meta:
         db_table = 'choice'
         verbose_name = 'Choice'

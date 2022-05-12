@@ -13,19 +13,20 @@
     </li>
 {% endblock %}
 {% block content %}
-    <h1>{{ poll.question }}</h1><br/>
+    <h1>{{ poll.question }}</h1>
+    <p>Answered: {{ count }} раз</p>
     <h3>Time of creation:</h3>
     <p>{{ poll.time_of_creations }}</p><br/>
     <h1>Choice:</h1>
-    {% for ch in poll.choices.all %}
-        <h2>{{ ch.variant_text }}</h2>
-
-
+    {% for choice in choices %}
+        <h2>{{ choice.variant_text }}</h2>
+        <p>Answered: {{ choice.answer_count }} раз</p>
+        <p>Answered: {{ choice.percent|floatformat:2 }} %</p>
         <li class="nav-item">
-            <a class=" active" aria-current="page" href="{% url "poll:choice_update" ch.pk %}">Update</a>
+            <a class=" active" aria-current="page" href="{% url "poll:choice_update" choice.pk %}">Update</a>
         </li>
         <li class="nav-item">
-            <a class=" active" aria-current="page" href="{% url "poll:choice_delete" ch.pk %}">Delete</a>
+            <a class=" active" aria-current="page" href="{% url "poll:choice_delete" choice.pk %}">Delete</a>
         </li><br/><br/>
     {% endfor %}
     <li class="nav-item">
