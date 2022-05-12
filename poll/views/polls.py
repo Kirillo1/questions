@@ -1,4 +1,6 @@
+from django.core.exceptions import PermissionDenied
 from django.db.models import Count, ExpressionWrapper as E, F, DecimalField
+from django.http import JsonResponse
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from poll.forms import PollForm
@@ -28,10 +30,14 @@ class PollDetailView(DetailView):
         return context
 
     def get_choices_with_answers_count(self, count, choices):
-        f = 100 / count
-        percent = E(F("answer_count") * f, output_field=DecimalField())
-        res_choices = choices.annotate(answer_count=Count("answers__pk")).annotate(percent=percent)
-        return res_choices
+        if count:
+            f = 100 / count
+            percent = E(F("answer_count") * f, output_field=DecimalField())
+            res_choices = choices.annotate(answer_count=Count("answers__pk")).annotate(percent=percent)
+            return res_choices
+        else:
+            res_choices = choices
+            return res_choices
 
 
 class PollCreateView(CreateView):

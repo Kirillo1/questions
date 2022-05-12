@@ -22,8 +22,10 @@
     <h1>Choice:</h1>
     {% for choice in choices %}
         <h2>{{ choice.variant_text }}</h2>
-        <p>Answered: {{ choice.answer_count }} раз</p>
-        <p>Answered: {{ choice.percent|floatformat:2 }} %</p>
+        {% if choice.answer_count %}
+            <p>Answered: {{ choice.answer_count }} раз</p>
+            <p>Answered: {{ choice.percent|floatformat:2 }} %</p>
+        {% endif %}
         <li class="nav-item">
             <a class=" active" aria-current="page" href="{% url "poll:choice_update" choice.pk %}">Update</a>
         </li>
