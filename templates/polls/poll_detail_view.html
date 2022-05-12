@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block lists %} Question {{ poll.pk }}{% endblock %}
+
 {% block nav %}
     <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="{% url "poll:poll_add" %}">Create</a>
@@ -12,6 +13,7 @@
         <a class="nav-link active" aria-current="page" href="{% url "poll:poll_update" poll.pk %}">Update</a>
     </li>
 {% endblock %}
+
 {% block content %}
     <h1>{{ poll.question }}</h1>
     <p>Answered: {{ count }} раз</p>

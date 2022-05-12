@@ -13,6 +13,7 @@
                 <input type="hidden" name="search" value="{{ search }}">
             </label>
         </form>
+
         {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}{% if search %}&search={{ search }}{% endif %}">Further</a>
         {% else %}

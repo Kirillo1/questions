@@ -18,7 +18,7 @@ class Poll(BaseModel):
     question = models.CharField(max_length=100, verbose_name="question")
 
     def __str__(self):
-        return f"{self.pk}: {self.question}"
+        return f"{self.question}"
 
     class Meta:
         db_table = 'poll'

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}<br/>
+
+    {% if answers %}<br/>
+        <h1>Answers</h1><br/>
+    {% else %}
+        <br/><h1>No product</h1><br/>
+    {% endif %}
+
+    {% for answer in answers %}
+        <div class="card bg-primary mb-4">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Question: {{ answer.poll }}</li>
+                <li class="list-group-item">Choice: {{ answer.choice }}</li>
+                <li class="list-group-item">Choice: {{ answer.time_of_answer }}</li>
+
+            </ul>
+        </div>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}<br/>
+{% endblock %}

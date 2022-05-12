@@ -1,7 +1,15 @@
 from django.shortcuts import redirect
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from poll.forms import AnswerForm
 from poll.models import Answer, Poll
+
+
+class AnswerListView(ListView):
+    model = Answer
+    context_object_name = 'answers'
+    template_name = "answer/answer_list_view.html"
+    paginate_by = 5
+    paginate_orphans = 0
 
 
 class AnswerCreateView(CreateView):

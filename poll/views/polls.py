@@ -1,5 +1,4 @@
 from django.db.models import Count, ExpressionWrapper as E, F, DecimalField
-
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from poll.forms import PollForm
