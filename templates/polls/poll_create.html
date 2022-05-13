@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-{% block lists %}Create poll{% endblock %}
+{% block lists %}Добавление вопроса{% endblock %}
 
 {% block nav %}{% endblock %}
 
 {% block content %}
-    <h1>Create poll</h1>
+    <h1>Добавить вопрос</h1>
 
     <form method="post">
-        {% include "partial/form.html" with button_text="Create" %}
+        {% include "partial/form.html" with button_text="Добавить" %}
     </form>
 {% endblock %}

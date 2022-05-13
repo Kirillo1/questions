@@ -1,39 +1,39 @@
 {% extends 'base.html' %}
 
-{% block lists %} Question {{ poll.pk }}{% endblock %}
+{% block lists %} Вопрос и варианты ответов {{ poll.pk }}{% endblock %}
 
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url "poll:poll_add" %}">Create</a>
+        <a class="nav-link active" aria-current="page" href="{% url "poll:poll_add" %}">Создать</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url "poll:poll_delete" poll.pk %}">Delete</a>
+        <a class="nav-link active" aria-current="page" href="{% url "poll:poll_delete" poll.pk %}">Удалить</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url "poll:poll_update" poll.pk %}">Update</a>
+        <a class="nav-link active" aria-current="page" href="{% url "poll:poll_update" poll.pk %}">Изменить</a>
     </li>
 {% endblock %}
 
 {% block content %}
     <h1>{{ poll.question }}</h1>
-    <p>Answered: {{ count }} раз</p>
-    <h3>Time of creation:</h3>
+    <p>Ответили: {{ count }} раз</p>
+    <h3>Время создания:</h3>
     <p>{{ poll.time_of_creations }}</p><br/>
-    <h1>Choice:</h1>
+    <h1>Ответы:</h1>
     {% for choice in choices %}
         <h2>{{ choice.variant_text }}</h2>
         {% if choice.answer_count %}
-            <p>Answered: {{ choice.answer_count }} раз</p>
-            <p>Answered: {{ choice.percent|floatformat:2 }} %</p>
+            <p>Ответили: {{ choice.answer_count }} раз</p>
+            <p>Ответили: {{ choice.percent|floatformat:2 }} %</p>
         {% endif %}
         <li class="nav-item">
-            <a class=" active" aria-current="page" href="{% url "poll:choice_update" choice.pk %}">Update</a>
+            <a class=" active" aria-current="page" href="{% url "poll:choice_update" choice.pk %}">Изменить</a>
         </li>
         <li class="nav-item">
-            <a class=" active" aria-current="page" href="{% url "poll:choice_delete" choice.pk %}">Delete</a>
+            <a class=" active" aria-current="page" href="{% url "poll:choice_delete" choice.pk %}">Удалить</a>
         </li><br/><br/>
     {% endfor %}
     <li class="nav-item">
-        <a class=" active" aria-current="page" href="{% url "poll:choice_add" poll.pk %}">Add new choice</a>
+        <a class=" active" aria-current="page" href="{% url "poll:choice_add" poll.pk %}">Добавить новый ответ</a>
     </li>
 {% endblock %}

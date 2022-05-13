@@ -16,7 +16,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href={% url 'poll:index' %}>Home</a>
+        <a class="navbar-brand" href={% url 'poll:index' %}>Главная</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,11 +25,10 @@
             <ul class="navbar-nav">
                 {% block nav %}
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'poll:poll_add' %}">Create
-                        Poll</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'poll:poll_add' %}">Создать вопрос</a>
                                         </li>
                                             <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="{% url "poll:answer_list_view" %}">Answers</a>
+                                            <a class="nav-link active" aria-current="page" href="{% url "poll:answer_list_view" %}">Опросники</a>
                                         </li>
                 {% endblock %}
             </ul>

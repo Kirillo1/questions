@@ -4,8 +4,8 @@
     <form method="POST">
         {% csrf_token %}
         <h2>
-            Delete: {{ choice.variant_text }}?</h2>
-        {% include "partial/form.html" with button_text='Yes' %}
+            Удалить вариант: "{{ choice.variant_text }}" ?</h2>
+        {% include "partial/form.html" with button_text='Да' %}
     </form>
-    <a href="{% url "poll:index" %}">No!</a>
+    <a href="{% url "poll:index" %}">Нет!</a>
 {% endblock %}

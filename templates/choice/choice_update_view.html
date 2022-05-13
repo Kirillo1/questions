@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
-{% block lists %}Update{% endblock %}
+{% block lists %}Изменение{% endblock %}
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url 'poll:choice_update' choice.pk %}">Choice</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'poll:pool_detail_view' choice.poll.pk %}">Назад</a>
     </li>{% endblock %}
 {% block content %}
-    <h1>Update Choice</h1>
+    <h1>Изменение варианта ответа</h1>
 
     <form method="post">
-        {% include "partial/form.html" with button_text="Update" %}
+        {% include "partial/form.html" with button_text="Изменить" %}
 
     </form>
 {% endblock %}

@@ -4,8 +4,8 @@
     <form method="POST">
         {% csrf_token %}
         <h2>
-            Delete: {{ poll.question }}?</h2>
-        {% include "partial/form.html" with button_text='Yes' %}
+            Удалить вопрос: "{{ poll.question }}" ?</h2>
+        {% include "partial/form.html" with button_text='Да' %}
     </form>
-    <a href="{% url "poll:pool_detail_view" poll.pk %}">No!</a>
+    <a href="{% url "poll:pool_detail_view" poll.pk %}">Нет</a>
 {% endblock %}

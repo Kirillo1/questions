@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
-{% block lists %}Answers{% endblock %}
-{% block content %}<br/>
+{% block lists %}Опросник{% endblock %}
+{% block content %}
 
     {% if answers %}<br/>
-        <h1>Answers</h1><br/>
+        <h1>Все опросы</h1><br/>
     {% else %}
-        <br/><h1>No answer</h1><br/>
+        <br/><h1>Нет опросов</h1><br/>
     {% endif %}
 
     {% for answer in answers %}
         <div class="card bg-primary mb-4">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Question: {{ answer.poll }}</li>
-                <li class="list-group-item">Choice: {{ answer.choice }}</li>
-                <li class="list-group-item">Choice: {{ answer.time_of_answer }}</li>
+                <li class="list-group-item">Вопрос: {{ answer.poll }}</li>
+                <li class="list-group-item">Ответ: {{ answer.choice }}</li>
+                <li class="list-group-item">Дата и время прохождения ответа: {{ answer.time_of_answer }}</li>
 
             </ul>
         </div>

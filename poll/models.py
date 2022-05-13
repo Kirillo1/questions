@@ -1,6 +1,4 @@
 from django.db import models
-
-# Create your models here.
 from django.urls import reverse
 
 
@@ -15,7 +13,7 @@ class BaseModel(models.Model):
 
 
 class Poll(BaseModel):
-    question = models.CharField(max_length=100, verbose_name="question")
+    question = models.CharField(max_length=100, verbose_name="Вопрос")
 
     def __str__(self):
         return f"{self.question}"
@@ -27,7 +25,7 @@ class Poll(BaseModel):
 
 
 class Choice(BaseModel):
-    variant_text = models.CharField(max_length=100, verbose_name="variant text")
+    variant_text = models.CharField(max_length=100, verbose_name="Вариант ответа")
     poll = models.ForeignKey("poll.Poll", on_delete=models.CASCADE, related_name="choices", verbose_name="Choice")
 
     def __str__(self):

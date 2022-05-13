@@ -1,0 +1,197 @@
+[
+{
+  "model": "poll.poll",
+  "pk": 1,
+  "fields": {
+    "time_of_creations": "2022-05-04T17:27:39.709Z",
+    "question": "How are you?"
+  }
+},
+{
+  "model": "poll.poll",
+  "pk": 2,
+  "fields": {
+    "time_of_creations": "2022-05-04T17:27:46.057Z",
+    "question": "Where are you from?"
+  }
+},
+{
+  "model": "poll.poll",
+  "pk": 3,
+  "fields": {
+    "time_of_creations": "2022-05-11T08:02:44.614Z",
+    "question": "How old are you?"
+  }
+},
+{
+  "model": "poll.poll",
+  "pk": 5,
+  "fields": {
+    "time_of_creations": "2022-05-12T15:19:13.294Z",
+    "question": "What do you want?"
+  }
+},
+{
+  "model": "poll.choice",
+  "pk": 1,
+  "fields": {
+    "time_of_creations": "2022-05-04T17:27:53.379Z",
+    "variant_text": "I am Ok",
+    "poll": 1
+  }
+},
+{
+  "model": "poll.choice",
+  "pk": 2,
+  "fields": {
+    "time_of_creations": "2022-05-04T17:28:01.238Z",
+    "variant_text": "Kyrgyzstan!",
+    "poll": 2
+  }
+},
+{
+  "model": "poll.choice",
+  "pk": 4,
+  "fields": {
+    "time_of_creations": "2022-05-07T17:04:05.797Z",
+    "variant_text": "Tajikistan",
+    "poll": 2
+  }
+},
+{
+  "model": "poll.choice",
+  "pk": 6,
+  "fields": {
+    "time_of_creations": "2022-05-11T08:03:32.994Z",
+    "variant_text": "29 years old",
+    "poll": 3
+  }
+},
+{
+  "model": "poll.choice",
+  "pk": 7,
+  "fields": {
+    "time_of_creations": "2022-05-11T08:03:43.169Z",
+    "variant_text": "32 years old",
+    "poll": 3
+  }
+},
+{
+  "model": "poll.choice",
+  "pk": 8,
+  "fields": {
+    "time_of_creations": "2022-05-12T13:31:16.149Z",
+    "variant_text": "Bad",
+    "poll": 1
+  }
+},
+{
+  "model": "poll.choice",
+  "pk": 9,
+  "fields": {
+    "time_of_creations": "2022-05-12T15:59:33.717Z",
+    "variant_text": "I want to drink!",
+    "poll": 5
+  }
+},
+{
+  "model": "poll.answer",
+  "pk": 1,
+  "fields": {
+    "time_of_creations": "2022-05-11T10:02:43.776Z",
+    "poll": 3,
+    "time_of_answer": "2022-05-11T10:02:43.777Z",
+    "choice": 7
+  }
+},
+{
+  "model": "poll.answer",
+  "pk": 2,
+  "fields": {
+    "time_of_creations": "2022-05-11T10:03:25.357Z",
+    "poll": 3,
+    "time_of_answer": "2022-05-11T10:03:25.357Z",
+    "choice": 7
+  }
+},
+{
+  "model": "poll.answer",
+  "pk": 3,
+  "fields": {
+    "time_of_creations": "2022-05-11T10:22:28.910Z",
+    "poll": 3,
+    "time_of_answer": "2022-05-11T10:22:28.911Z",
+    "choice": 7
+  }
+},
+{
+  "model": "poll.answer",
+  "pk": 4,
+  "fields": {
+    "time_of_creations": "2022-05-11T10:24:41.899Z",
+    "poll": 3,
+    "time_of_answer": "2022-05-11T10:24:41.899Z",
+    "choice": 1
+  }
+},
+{
+  "model": "poll.answer",
+  "pk": 5,
+  "fields": {
+    "time_of_creations": "2022-05-11T10:31:27.900Z",
+    "poll": 3,
+    "time_of_answer": "2022-05-11T10:31:27.900Z",
+    "choice": 6
+  }
+},
+{
+  "model": "poll.answer",
+  "pk": 6,
+  "fields": {
+    "time_of_creations": "2022-05-12T13:21:31.036Z",
+    "poll": 3,
+    "time_of_answer": "2022-05-12T13:21:31.036Z",
+    "choice": 7
+  }
+},
+{
+  "model": "poll.answer",
+  "pk": 7,
+  "fields": {
+    "time_of_creations": "2022-05-12T13:21:38.504Z",
+    "poll": 3,
+    "time_of_answer": "2022-05-12T13:21:38.505Z",
+    "choice": 7
+  }
+},
+{
+  "model": "poll.answer",
+  "pk": 8,
+  "fields": {
+    "time_of_creations": "2022-05-12T13:21:40.523Z",
+    "poll": 3,
+    "time_of_answer": "2022-05-12T13:21:40.523Z",
+    "choice": 6
+  }
+},
+{
+  "model": "poll.answer",
+  "pk": 9,
+  "fields": {
+    "time_of_creations": "2022-05-12T13:30:55.198Z",
+    "poll": 2,
+    "time_of_answer": "2022-05-12T13:30:55.199Z",
+    "choice": 4
+  }
+},
+{
+  "model": "poll.answer",
+  "pk": 10,
+  "fields": {
+    "time_of_creations": "2022-05-12T13:31:06.158Z",
+    "poll": 1,
+    "time_of_answer": "2022-05-12T13:31:06.158Z",
+    "choice": 1
+  }
+}
+]

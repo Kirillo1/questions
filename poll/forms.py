@@ -4,7 +4,7 @@ from poll.models import Poll, Choice, Answer
 
 
 class PollForm(forms.ModelForm):
-    question = forms.CharField(max_length=100, label='question')
+    question = forms.CharField(max_length=100, label='Вопрос')
 
     class Meta:
         model = Poll
